@@ -28,7 +28,7 @@ method abs(x: int) returns (y: int)
 }
 
 /** Call abs */
-method foo(x: int) 
+method foo(x: int)  
     requires x >= 0
 {
     var y := abs(x);

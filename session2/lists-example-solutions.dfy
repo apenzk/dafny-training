@@ -53,7 +53,7 @@ lemma witnessLengthTwoNat()
 lemma foo1()
   ensures false
 
-function method foo2() : bool 
+function foo2() : bool 
   ensures false 
 {
   foo1();
@@ -74,8 +74,8 @@ lemma existsListOfArbitraryLength<T(0)>(n: nat)
     existsListOfArbitraryLength<T>(n - 1);
     var xs: List<T> :| length(xs) == n - 1;
     //  T(0) is for generic types that can be auto-initialised (and are inhabited)
-    var t: T;
-    assert length(Cons(t, xs)) == n;
+    var t: T := *;
+    assert length(Cons(t, xs)) == n; 
   }
 }
 

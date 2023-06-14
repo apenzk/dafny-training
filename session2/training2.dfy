@@ -23,7 +23,7 @@
 /**
  *  This is the definition of powerOf2.
  */
-function method powerOf2(n: nat) : nat 
+function powerOf2(n: nat) : nat 
     decreases n
 {
     if n == 0 then 
@@ -108,7 +108,7 @@ datatype Tree =
 /**
  *  Maximum of two non-negative integers.
  */
-function method max(x: nat, y : nat) : nat 
+function max(x: nat, y : nat) : nat 
 {
     if x > y then 
         x
@@ -122,7 +122,7 @@ function method max(x: nat, y : nat) : nat
  *  @param  root    The root of the tree.
  *  @returns        The height of the tree rooted at `root`.
  */
-function height(root : Tree) : nat 
+ghost function height(root : Tree) : nat 
     ensures height(root) >= 1
     decreases root
 {
@@ -140,14 +140,14 @@ function height(root : Tree) : nat
  *  @note           Perform a in-order (left, node, right) traversal to
  *                  compute the result.
  */
-function method nodesCount(root : Tree) : nat
+function nodesCount(root : Tree) : nat
     ensures nodesCount(root) >= 1
 {
     //  Define this function.
     1
 }
 
-function method leavesCount(root : Tree) : nat
+function leavesCount(root : Tree) : nat
     ensures leavesCount(root) >= 1
     decreases root
 {

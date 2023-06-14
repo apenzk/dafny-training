@@ -3,7 +3,7 @@
  *  Skeleton Dafny programs for session 2 of training.
  */
 
-function method powerOf2(n: nat) : nat //   if no main do not se method.
+function powerOf2(n: nat) : nat //   if no main do not se method.
     ensures powerOf2(n) >= 1  //    show that during the training!!
     decreases n
 {
@@ -102,7 +102,7 @@ lemma {:induction n} addPowerOf2(n: nat, m : nat)
 }
 
 // sum first n nats
-function sum(n: nat): nat 
+ghost function sum(n: nat): nat 
     decreases n 
 {
     if n == 0 then 
@@ -156,7 +156,7 @@ function height(root : Tree) : nat
 /**
  *  Maximum of two non-negative integers.
  */
-function method max(x: nat, y : nat) : nat 
+function max(x: nat, y : nat) : nat 
 {
     if x > y then 
         x
@@ -173,7 +173,7 @@ function method max(x: nat, y : nat) : nat
  *  @note           Perform a in-order (left, node, right) traversal to
  *                  compute the result.
  */
-function method nodesCount(root : Tree) : nat
+function nodesCount(root : Tree) : nat
     ensures nodesCount(root) >= 1
     decreases root
 {
@@ -191,7 +191,7 @@ function method nodesCount(root : Tree) : nat
  *  @note           Perform a in-order (left, node, right) traversal to
  *                  compute the result.
  */
-function method leavesCount(root : Tree) : nat
+function leavesCount(root : Tree) : nat
     ensures leavesCount(root) >= 1
     decreases root
 {

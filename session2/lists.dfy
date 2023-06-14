@@ -9,7 +9,7 @@ datatype List<T> = Nil | Cons(T, List<T>)
 /**
  *  Length of a list.
  */
-function length<T>(xs: List<T>): nat
+ghost function length<T>(xs: List<T>): nat
 {
     match xs
         case Nil => 0
@@ -53,7 +53,7 @@ lemma witnessLengthTwoNat()
 lemma foo1()
   ensures false
 
-function method foo2() : bool 
+function foo2() : bool 
   ensures false 
 {
   foo1();
@@ -64,18 +64,31 @@ function method foo2() : bool
  *  Existence of lists of arbitrary length.
  *  Demonstrate how to prove existential properties.
  */
-lemma existsListOfArbitraryLength<T(0)>(n: nat)
-  ensures exists l: List<T> :: length(l) == n
+lemma existsListOfArbitraryLength<T(0)>(n: nat) returns (xs: List<T>)
+  ensures length(xs) == n
 {
   if n == 0 {
-    var x: List<T> := Nil;
-    assert length(x) == 0;
+    xs := Nil;
   } else {
-    existsListOfArbitraryLength<T>(n - 1);
-    var xs: List<T> :| length(xs) == n - 1;
-    //  T(0) is for generic types that can be auto-initialised (and are inhabited)
-    var t: T;
-    assert length(Cons(t, xs)) == n;
+    var xs1 := existsListOfArbitraryLength(n - 1);
+    var t: T := *;
+    xs :=  Cons(t, xs1);
+    assert length(xs) == length(xs1) + 1;
+  }
+}
+
+lemma existsListOfArbitraryLength2<T(0)>(n: nat) 
+  ensures exists l: List<T> :: length(l) == n  
+{
+  if n == 0 {
+    var xs : List<T> := Nil;
+    assert length(xs) == 0;
+  } else {
+    existsListOfArbitraryLength2<T>(n - 1);
+    var xs1 : List<T> :| length(xs1) == n - 1;
+    var t: T := *;
+    var xs : List<T> :=  Cons(t, xs1);
+    assert length(xs) == n ; 
   }
 }
 
