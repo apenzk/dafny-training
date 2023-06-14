@@ -3,43 +3,33 @@ Some examples of Dafny code to support training sessions
 
 # Install Dafny/VSCode
 
-You should install the [Dafny VsCode plugin](https://marketplace.visualstudio.com/items?itemName=correctnessLab.dafny-vscode).
+The easiest way to get Dafny is to install the [Dafny VsCode plugin](https://marketplace.visualstudio.com/items?itemName=dafny-lang.ide-vscode).
 
-The installer may prompt you to agree to install Dafny 3.0.0, Z3 and change some permissions.
+You will also have to install `dotnet-sdk` 5.0 or 6.0 (`brew install dotnet@6` on a Mac).
 
-You may configure the plugin to verify `on save` only (set the Dafny plugin settings in VSCode) as otherwise live and continuous verification can alter performance.
+In the VsCode Dsfny settings:
 
+-  set the absolute path to `dotnet`.
+- add the item `--relax-definite-assignment` to language server _launch args_.
 # Dafny CLI
 
-In the session we may use the CLI (e.g. for compile/run).
-You can use the Dafny executubla bundled in the plugin located 
-at `$HOME/.vscode/extensions/correctnesslab.dafny-vscode-1.4.0/out/dafnyLanguageServer/Dafny.dll`.
-To run the `.dll` on non-windows system, you'll have to install `dotnet`.
-You can then create an `alias` for `dafny` 
+You can install the [Dafny 4.x latest release](https://github.com/dafny-lang/dafny/releases/tag/) for your system which provides a `dafny` executable (the plugin installs an executuble in the `.vscode/extensions` folder).
 
-```zsh
-alias dafny=`dotnet ../../.vscode/extensions/correctnesslab.dafny-vscode-1.4.0/out/dafnyLanguageServer/Dafny.dll`
-```
-
-Alternatively, you can install the [Dafny 3.0.0 latest release](https://github.com/dafny-lang/dafny/releases/tag/v3.0.0) for your system which provide a `dafny` executable (the VSCode plugin also runs Dafny 3.0.0).
-There is no conflict between the plugin version and another one that you install manually. The plugin configuration defaults to use the Dafny executables bundled with the plugin.
 
 Make sure you add the path to the Dafny executable to your paths.
 # Checking your installation
-
 ## Checking Plugin
 
-1. Clone/fork this repository.
+1. Fork this repository.
 2. Open the file `training1.dfy` in session1
 3. The `Problems` tab should display a couple of information (`decreases` and another related to `triggers`). If this is the case you should be all set.
 
 ## Checking CLI
 
-
 In a terminal, the command `dafny /help` should output something like:
 ```zsh
 % dafny -version
-Dafny 3.0.0.30203
+Dafny 4.xxx
 ```
 
 You can `cd` to the `sessions` directory and try the following commands:
@@ -84,8 +74,8 @@ Dafny program verifier finished with 7 verified, 0 errors
 ```
 ## Note
 
-On MacOSX, if you have manually installed the Dafny 3.0.0  release you may encounter some permission issues on MacOSX.
-In that case, you may have to _allow_ several files to be executable (this is via the _Security_ widget in the _Preferences_.)
+On MacOSX, if you have manually installed the Dafny 4.x  release you may encounter some permission issues.
+Run the script provided with Dafny `allow_on_mac.sh` to fix this issue.
 
 # Dafny Reference Manual
 
