@@ -13,7 +13,7 @@ In the VsCode Dsfny settings:
 - add the item `--relax-definite-assignment` to language server _launch args_.
 # Dafny CLI
 
-You can install the [Dafny 4.x latest release](https://github.com/dafny-lang/dafny/releases/tag/) for your system which provides a `dafny` executable (the plugin installs an executuble in the `.vscode/extensions` folder).
+You can install the [Dafny 4.x latest release](https://github.com/dafny-lang/dafny/releases/) for your system which provides a `dafny` executable (the plugin installs an executuble in the `.vscode/extensions` folder).
 
 
 Make sure you add the path to the Dafny executable to your paths.
@@ -79,8 +79,6 @@ Run the script provided with Dafny `allow_on_mac.sh` to fix this issue.
 
 # Dafny Reference Manual
 
-The current versions of the Dafny Reference Manual should be:
+The current versions of the Dafny Reference Manual should be available from the Dafny repo in [docs](https://github.com/dafny-lang/dafny/tree/master/docs).
 
-- [HTML version](https://dafny-lang.github.io/dafny/DafnyRef/DafnyRef)
-- [PDF version](https://github.com/dafny-lang/dafny/blob/master/docs/DafnyRef/out/DafnyRef.pdf)
 
