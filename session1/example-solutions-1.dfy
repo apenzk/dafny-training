@@ -121,6 +121,33 @@ method find (a: seq<int>, key: int) returns (index : int)
     index := -1;
 }
 
+//  A Version of find with an Option type.
+
+datatype Option<T> = None | Some(v: T)
+
+method find2<T(==)> (a: seq<T>, key: T) returns (optIndex : Option<nat>)
+    requires true
+    ensures key !in a ==> optIndex == None 
+    ensures key in a ==> optIndex.Some?  
+    ensures key in a ==> 0 <= optIndex.v < |a|
+    ensures key in a ==> a[optIndex.v] == key
+{
+    var index := 0;
+    while (index < |a|) 
+        decreases |a| - index
+        invariant 0 <= index <= |a| ;
+        invariant key !in a[..index];
+        {
+            if ( a[index] == key ) { 
+                assert( index < |a|);
+                return Some(index) ;
+            }
+            index := index + 1;
+        }
+    optIndex := None;
+}
+
+
 /**
  *  Palidrome checker.
  *  Example 3.
