@@ -46,8 +46,8 @@ method foo(x: int)
  *  3. fix the code and make sure it verifies.
  */
 method max(x: int, y: int) returns (m: int)
-requires true;
-ensures true;
+requires true
+ensures true
 {
     var r : int;
     if x > y  {
