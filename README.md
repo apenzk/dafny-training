@@ -3,13 +3,13 @@ Some examples of Dafny code to support training sessions
 
 # Install Dafny/VSCode
 
-The easiest way to get Dafny is to install the [Dafny VsCode plugin](https://marketplace.visualstudio.com/items?itemName=dafny-lang.ide-vscode).
+The easiest way to get Dafny is to install the [Dafny VS Code plugin](https://marketplace.visualstudio.com/items?itemName=dafny-lang.ide-vscode).
 
 You will also have to install `dotnet-sdk` 5.0 or 6.0 (`brew install dotnet@6` on a Mac).
 
-In the VsCode Dsfny settings:
+In the VS Code Dafny settings:
 
--  set the absolute path to `dotnet`.
+- set the absolute path to `dotnet` (which is provided during the brew installation).
 - add the item `--relax-definite-assignment` to language server _launch args_.
 # Dafny CLI
 
