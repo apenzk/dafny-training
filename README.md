@@ -17,6 +17,12 @@ You can install the [Dafny 4.x latest release](https://github.com/dafny-lang/daf
 
 
 Make sure you add the path to the Dafny executable to your paths.
+
+### Note
+
+On MacOSX, if you have manually installed the Dafny 4.x  release you may encounter some permission issues.
+Run the script provided with Dafny `allow_on_mac.sh` to fix this issue.
+
 # Checking your installation
 ## Checking Plugin
 
@@ -72,11 +78,6 @@ Verifying Impl$$_module.__default._default_Main ...
 
 Dafny program verifier finished with 7 verified, 0 errors
 ```
-## Note
-
-On MacOSX, if you have manually installed the Dafny 4.x  release you may encounter some permission issues.
-Run the script provided with Dafny `allow_on_mac.sh` to fix this issue.
-
 # Dafny Reference Manual
 
 The current versions of the Dafny Reference Manual should be available from the Dafny repo in [docs](https://github.com/dafny-lang/dafny/tree/master/docs).
